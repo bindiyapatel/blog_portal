@@ -73,15 +73,17 @@ $(document).ready(function(){
                     for (const blog of blogs) {
                         createBlog(blog);
                     }
-                    skip += 2;
+                    skip += 10;
                 }
                 
-                if(blogs.length < 5 || blogs.length == 0)
+                if(blogs.length < 10)
                 {
                     $('#view_more').hide();
                 }
             } else {
-                $('#listBlogs').html(`<h2>${response.message}</h2>`);
+                if(skip == 0)
+                    $('#listBlogs').html(`<h2>${response.message}</h2>`);
+
                 $('#view_more').hide();
             }    
         });

@@ -64,7 +64,7 @@
         try 
         {
             // Sql Prepare statement
-            $statement = $conn->prepare("SELECT * FROM `blogs` ORDER BY `blog_id` DESC");
+            $statement = $conn->prepare("SELECT * FROM `blogs` ORDER BY `blog_id` DESC LIMIT 10 OFFSET $skip");
             $statement->execute();
             $result = $statement->setFetchMode(PDO::FETCH_ASSOC);
             $result = $statement->fetchAll();
