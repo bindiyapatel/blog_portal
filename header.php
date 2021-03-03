@@ -9,10 +9,16 @@
         <script src="popper.min.js"></script>
 
         <style>
+        body {
+          min-height: 400px;
+          margin-bottom: 100px;
+          clear: both;
+        }
         .footer {
           position: fixed;
           left: 0;
           bottom: 0;
+          /* margin-top: 20px; */
           width: 100%;
           background-color: red;
           color: white;
