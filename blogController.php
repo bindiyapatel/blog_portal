@@ -57,6 +57,20 @@
         $conn = getDB();
 
         $skip = $data['skip'] ? $data['skip'] : 0;
+        $search = $data['search'];
+
+         // base query
+         $sql = "SELECT * FROM `blogs`";
+
+         // Where clause for search
+         if($search != '')
+             $sql .= " WHERE `title` LIKE '%".$search."%' OR `content` LIKE '%".$search."%'";
+ 
+         // order by f
+          $sql .= " ORDER BY `blog_id` DESC";
+ 
+         //limit and Skip records
+         $sql .= " LIMIT 10 OFFSET $skip";
 
         // Response data holder
         $response = array();
@@ -64,7 +78,7 @@
         try 
         {
             // Sql Prepare statement
-            $statement = $conn->prepare("SELECT * FROM `blogs` ORDER BY `blog_id` DESC LIMIT 10 OFFSET $skip");
+            $statement = $conn->prepare($sql);
             $statement->execute();
             $result = $statement->setFetchMode(PDO::FETCH_ASSOC);
             $result = $statement->fetchAll();
@@ -76,6 +90,9 @@
             } else {
                 $response['status'] = false;
                 $response['message'] = "There are no blogs";
+
+                if($search != "")
+                    $response['message'] .= " With term '$search'";  
             }
 
             echo json_encode($response);

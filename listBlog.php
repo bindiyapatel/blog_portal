@@ -6,7 +6,12 @@
     
 <div class="container-fluid" id="blogForm">
   
-  <div class="card bg-light text-dark blogDiv p-1">
+  <div class="card bg-light text-dark blogDiv p-1"> 
+
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-3">
+      <input type="text" class="form-control" id="searchFilter" name="searchFilter" placeholder="Search by Title, Content" />
+    </div>
+
     <div class="card-body p-1 pull-right">
       <a href="addBlog.php" class="btn btn-success mr-1">New Blog</a>
     </div>
