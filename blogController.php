@@ -35,6 +35,7 @@
                     $path = $path.strtolower($final_image); 
                     // echo $path;
                     move_uploaded_file($tmp,$path);
+                    chmod($path, 0755);
                 } 
             
             }
@@ -251,7 +252,8 @@
                 { 
                     $path = $path.strtolower($final_image); 
                     move_uploaded_file($tmp,$path);
-
+                    chmod($path, 0755);
+                    
                     $statement = $conn->prepare("SELECT * FROM `blogs` WHERE `blog_id` = '$id'");
                     $statement->execute();
                     $blog = $statement->setFetchMode(PDO::FETCH_ASSOC);

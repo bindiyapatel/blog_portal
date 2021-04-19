@@ -8,7 +8,8 @@
 
         // try 
         // {
-            $sql = "SELECT * FROM `users` WHERE `email_id` = '$email'";            
+            $sql = "SELECT * FROM `users` WHERE `email_id` = '$email'";   
+
             $statement = $conn->prepare($sql);
             $statement->execute();
             $result = $statement->setFetchMode(PDO::FETCH_ASSOC);
