@@ -1,3 +1,6 @@
+<?php 
+  session_start();
+?>
 <html>
     <head>
         <title> Creative Blogs</title>
@@ -24,12 +27,29 @@
           color: white;
           text-align: center;
         }
+        .disable {
+          /* cursor: not-allowed */
+          pointer-events: none;
+        }
         </style>      
     </head>
     <body>
 
-    
-  <div class="text-center bg-pink">
-    <h1>Online Blog Portal</h1>
-    <p>Express your ideas and thoughts here.</p> 
+  <div class="row">
+    <div class="text-center">
+      <h1>Creative Blog Portal</h1>
+      <p>
+        Express your ideas and thoughts here.
+        <p class="logout">
+          <?php
+            if(isset($_SESSION['isLoggedIn']) )
+            {
+          ?>   
+            <a href="javascript:void()"  class="btn btn-danger" id="logoutButton">Logout</a>
+          <?php
+            }
+          ?>
+        </p>
+      </p> 
+    </div>    
   </div>

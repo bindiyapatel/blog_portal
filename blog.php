@@ -27,4 +27,14 @@
     {   
         updateBlog($_POST);
     }
+
+    else if(isset($_POST) && isset($_POST['blog_id']) && isset($_POST['likeBlog']) && $_POST['likeBlog'] == true) 
+    {   
+        likeBlog($_POST);
+    }
+
+    else if(isset($_POST) && isset($_POST['blog_id']) && isset($_POST['commentBlog']) && $_POST['commentBlog'] == true) 
+    {   
+        commentBlog($_POST);
+    }
 ?>
